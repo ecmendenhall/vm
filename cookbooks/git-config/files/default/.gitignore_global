@@ -1,0 +1,43 @@
+# ctags
+/tags
+
+# osx
+.DS_Store
+
+# emacs
+*~
+
+# vim
+*.swp
+*.swo
+
+# eclipse
+.classpath
+.settings
+.metadata
+.project
+
+# intellij
+.idea
+*.iml
+*.ipr
+*.iws
+*.eml
+projectFilesBackup
+out
+
+# leiningen
+.lein-deps-sum
+.lein-failures
+.repl-history
+.lein-plugins
+
+# java
+*.class
+
+# ruby
+.bundle
+.rvmrc
+.rakeTasks
+default.gems
+.generators

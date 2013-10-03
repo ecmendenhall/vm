@@ -11,7 +11,7 @@ class CloudUbuntuVagrant < VagrantVbguest::Installers::Ubuntu
 end
 
 Vagrant.configure("2") do |config|
-  config.vm.box = "raring32"
+  config.vm.box = "ecm"
   config.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/raring/current/raring-server-cloudimg-i386-vagrant-disk1.box"
   config.vbguest.installer = CloudUbuntuVagrant
 
@@ -52,32 +52,33 @@ Vagrant.configure("2") do |config|
   # some recipes and/or roles.
   #
   config.vm.provision :chef_solo do |chef|
-    chef.cookbooks_path = "cookbooks"
-  #   chef.roles_path = "../my-recipes/roles"
-  #   chef.data_bags_path = "../my-recipes/data_bags"
+    config.berkshelf.enabled = true
 
-      chef.add_recipe "setup"
+    chef.add_recipe "git"
+    chef.add_recipe "zsh"
+    chef.add_recipe "tmux"
+    chef.add_recipe "vim"
 
-      chef.add_recipe "git"
-      chef.add_recipe "mercurial"
-      chef.add_recipe "vim"
-      chef.add_recipe "tmux"
-      chef.add_recipe "zsh"
+    chef.add_recipe "rvm"
+    chef.add_recipe "lein"
 
-      chef.add_recipe "rvm"
-      chef.add_recipe "leiningen"
-      chef.add_recipe "node"
+    chef.add_recipe "node"
+    chef.add_recipe "phantomjs"
+    chef.add_recipe "ruby"
+    chef.add_recipe "python"
 
-      chef.add_recipe "phantomjs"
+    chef.add_recipe "postgres"
+    chef.add_recipe "mongodb"
+    chef.add_recipe "mysql"
+    chef.add_recipe "redis"
+    chef.add_recipe "memcached"
+    chef.add_recipe "elasticsearch"
+    chef.add_recipe "rabbitmq"
 
-      chef.add_recipe "postgres"
-      chef.add_recipe "mongodb"
-      chef.add_recipe "elasticsearch"
-
-  #   chef.add_role "web"
-  #
-  #   # You may also specify custom JSON attributes:
-  #   chef.json = { :mysql_password => "foo" }
+    chef.add_recipe "git-config"
+    chef.add_recipe "zsh-config"
+    chef.add_recipe "tmux-config"
+    chef.add_recipe "autoupdate"
   end
 
   # Enable provisioning with chef server, specifying the chef server URL,

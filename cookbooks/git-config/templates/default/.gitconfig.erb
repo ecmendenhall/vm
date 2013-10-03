@@ -1,0 +1,34 @@
+[user]
+  name = <%= @full_name %>
+  email = <%= @email %>
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+	ui = true
+[core]
+  excludesfile = ~/.gitignore_global
+	editor = vim
+	ignorecase = true
+	autocrlf = input
+[alias]
+  co = checkout
+  ci = commit
+  st = status
+  dc = diff --cached
+  di = diff
+  aa = add --all
+  unstage = reset HEAD --
+  last = log -1 HEAD
+	br = branch
+	praise = blame
+[merge]
+  tool = vimdiff
+[svn]
+	rmdir = true
+[help]
+	autocorrect = 1
+[push]
+	default = tracking
+[branch]
+	autosetuprebase = always

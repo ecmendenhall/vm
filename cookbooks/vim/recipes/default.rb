@@ -1,6 +1,3 @@
-include_recipe "git"
-include_recipe "mercurial"
-
 package "vim-nox"
 
 user = node[:vim][:user]
